@@ -1,0 +1,14 @@
+#!/bin/sh
+
+podman run \
+    --rm \
+    -ti \
+    -v $PWD/:$PWD:z \
+    -v $HOME/.config/gcloud:/root/.config/gcloud:z \
+    -v $HOME/.claude:/root/.claude:z \
+    -v $HOME/.claude.json:/root/.claude.json:z \
+    -v $HOME/.gitconfig:/root/.gitconfig:z \
+    -e CLAUDE_CODE_USE_VERTEX=$CLAUDE_CODE_USE_VERTEX \
+    -e CLOUD_ML_REGION=$CLOUD_ML_REGION \
+    -e ANTHROPIC_VERTEX_PROJECT_ID=$ANTHROPIC_VERTEX_PROJECT_ID\
+    claude $PWD
