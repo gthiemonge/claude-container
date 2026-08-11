@@ -3,13 +3,14 @@
 podman run \
     --rm \
     -ti \
+    --userns=keep-id \
     -v $PWD/:$PWD:z \
-    -v $HOME/.config/gcloud:/root/.config/gcloud:z \
-    -v $HOME/.claude:/root/.claude:z \
-    -v $HOME/.claude.json:/root/.claude.json:z \
-    -v $HOME/.gitconfig:/root/.gitconfig:z \
-    -e CLAUDE_CODE_USE_VERTEX=$CLAUDE_CODE_USE_VERTEX \
-    -e CLOUD_ML_REGION=$CLOUD_ML_REGION \
-    -e ANTHROPIC_VERTEX_PROJECT_ID=$ANTHROPIC_VERTEX_PROJECT_ID \
+    -v $HOME/.config/gcloud:/home/claude/.config/gcloud:ro,z \
+    -v $HOME/.claude:/home/claude/.claude:z \
+    -v $HOME/.claude.json:/home/claude/.claude.json:z \
+    -v $HOME/.gitconfig:/home/claude/.gitconfig:ro,z \
+    -e CLAUDE_CODE_USE_VERTEX \
+    -e CLOUD_ML_REGION \
+    -e ANTHROPIC_VERTEX_PROJECT_ID \
     -e DISABLE_AUTOUPDATER=1 \
     claude $PWD

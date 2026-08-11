@@ -3,4 +3,4 @@
 workdir="$1"
 cd $workdir
 
-exec /root/.local/bin/claude
+exec /home/claude/.local/bin/claude
