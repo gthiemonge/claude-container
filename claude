@@ -8,9 +8,9 @@ podman run \
     -v $HOME/.config/gcloud:/home/claude/.config/gcloud:ro,z \
     -v $HOME/.claude:/home/claude/.claude:z \
     -v $HOME/.claude.json:/home/claude/.claude.json:z \
-    -v $HOME/.gitconfig:/home/claude/.gitconfig:ro,z \
+    -v $HOME/.gitconfig:/home/claude/.gitconfig:ro,Z \
     -e CLAUDE_CODE_USE_VERTEX \
     -e CLOUD_ML_REGION \
     -e ANTHROPIC_VERTEX_PROJECT_ID \
     -e DISABLE_AUTOUPDATER=1 \
-    claude $PWD
+    claude $PWD "$@"
