@@ -3,7 +3,7 @@
 podman run \
     --rm \
     -ti \
-    --userns=keep-id \
+    --userns=keep-id:uid=1000,gid=1000 \
     -v $PWD/:$PWD:z \
     -v $HOME/.config/gcloud:/home/claude/.config/gcloud:ro,z \
     -v $HOME/.claude:/home/claude/.claude:z \
