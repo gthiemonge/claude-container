@@ -24,12 +24,14 @@ RUN set -eu; \
         apt-get install -y $packages; \
         rm -rf /var/lib/apt/lists/*; \
     else \
+        dnfopts=""; \
         if grep -q 'platform:el' /etc/os-release; then \
             dnf install -y epel-release; \
+            dnfopts="--enablerepo=crb"; \
         fi; \
         curl -fsSL https://cli.github.com/packages/rpm/gh-cli.repo \
             -o /etc/yum.repos.d/gh-cli.repo; \
-        dnf install -y $packages; \
+        dnf install -y $dnfopts $packages; \
         dnf clean all; \
     fi; \
     rm -f /tmp/packages.txt /tmp/packages.${PKG_MANAGER}.txt
