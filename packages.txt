@@ -1,0 +1,25 @@
+# Packages installed in every image, regardless of package manager.
+# One package per line. Blank lines and lines starting with '#' are ignored.
+# Package-manager-specific names go in packages.dnf.txt / packages.apt.txt.
+git
+python3
+python3-pip
+tox
+sudo
+which
+pre-commit
+# General Claude Code workflow
+jq
+gh
+ripgrep
+less
+ca-certificates
+diffutils
+patch
+findutils
+tar
+gzip
+unzip
+# Build toolchain for compiling Python deps (tox / pre-commit envs)
+gcc
+make

@@ -1,0 +1,8 @@
+# Packages installed only on apt-based images (Ubuntu / Debian).
+# One package per line. Blank lines and lines starting with '#' are ignored.
+curl
+python3-venv
+python3-dev
+libffi-dev
+libssl-dev
+procps
